@@ -1,0 +1,3 @@
+<% include(Bloggify.views.header, { title: "Logout" }) %>
+<% include(Bloggify.views.logout) %>
+<% include(Bloggify.views.footer) %>

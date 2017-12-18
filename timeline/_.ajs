@@ -1,0 +1,32 @@
+<% ctx.displayNavigationPages = false; %>
+<% include(Bloggify.views.header, { title: "Timeline" }) %>
+<% include(Bloggify.views.container.start) %>
+
+<% var timelineImage = ""; %>
+<% if (user.profile.hack_type === "purdue") { %>
+<%   timelineImage = _public("/img/timelines/1.png"); %>
+<% } else if (user.profile.hack_type === "bogota") { %>
+<%   timelineImage = _public("/img/timelines/2.png"); %>
+<% } else if (user.profile.hack_type === "unal") { %>
+<%   timelineImage = _public("/img/timelines/3.png"); %>
+<% } %>
+
+
+<script>
+    window._pageData = {
+        component: "timeline",
+        user: <%- stringify(user) %>,
+        forum_start_time: <%- stringify(hackType.start_date || new Date()) %>,
+        hack_start_time: <%- stringify(hackType.hack_start_date || new Date()) %>,
+        next_phase_time: <%- stringify(hackType.next_phase_date || new Date()) %>,
+        current_time: new Date(),
+        tutorial_link: <%- stringify(ctx.tutorialLink) %>,
+        timeline_img: <%- stringify(timelineImage) %>,
+        hack_label: <%- stringify(ctx.hackLabel) %>
+    };
+</script>
+
+<div id="app"></div>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

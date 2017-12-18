@@ -1,0 +1,19 @@
+<% include(Bloggify.views.header, { title: "Admin" }) %>
+<% include(Bloggify.views.container.start) %>
+
+<script>
+    window._pageData = {
+        component: "admin-view",
+        user: <%- stringify(user) %>,
+        settings: <%- stringify(settings) %>,
+        users: <%- stringify(users) %>,
+        csrfToken: <%- stringify(ctx.csrfToken) %>,
+        hackTypes: <%- stringify(Bloggify.services.hack_types || {}) %>
+    };
+</script>
+
+<h1>Admin</h1>
+<div id="app"></div>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>
