@@ -1,0 +1,16 @@
+<% include(Bloggify.views.header, { title: "Delete project" }) %>
+<% include(Bloggify.views.container.start) %>
+
+
+<h2>Are you <strong>really</strong> sure you want to delete '<%= ctx.selected_project.name %>'?</h2>
+
+<hr>
+
+<form method="post">
+    <%- ctx.csrfInput %>
+    <button class="btn" type="submit">Yes, delete it!</button>
+    <a class="btn" href="<%= ctx.selected_project.url %>">No</a>
+</form>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

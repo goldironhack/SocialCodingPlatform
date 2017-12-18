@@ -1,0 +1,4 @@
+<form method="post" action="/logout">
+    <%- ctx.csrfInput %>
+    <input type="submit" value="Logout" class="btn btn-small">
+</form>

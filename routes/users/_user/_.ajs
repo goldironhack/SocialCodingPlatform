@@ -1,0 +1,50 @@
+<% include(Bloggify.views.header, { title: profile.username }) %>
+<% include(Bloggify.views.container.start) %>
+<div class="row">
+    <div class="col">
+        <% profileInfo = profile.profile || {} %>
+        <h1>
+            <%= profile.username %>
+        </h1>
+        <% if (profile._id.toString() === user._id.toString()) { %>
+            <div class="user-profile-controls">
+                <% include(Bloggify.views.logout) %>
+                <a class="hide" href="<%= profile.url %>/edit">Edit profile</a>
+            </div>
+        <% } %>
+        <div class="social-links">
+            <% if (profileInfo.github_username) { %>
+                <span>
+                    GitHub:
+                    <a target="_blank" href="https://github.com/<%= profileInfo.github_username %>"><i class="fa fa-github" aria-hidden="true"></i> <%= profileInfo.github_username %></a>
+                </span>
+            <% } %>
+            <% if (profileInfo.twitter) { %>
+                | <span>
+                    Twitter:
+                    <a target="_blank" href="https://twitter.com/<%= profileInfo.twitter %>">
+                        <i class="fa fa-twitter" aria-hidden="true"></i> <%= profileInfo.twitter %>
+                    </a>
+                </span>
+            <% } %>
+        </div>
+        <% if (profileInfo.bio) { %>
+            <p>
+                <i>
+                    <%= profileInfo.bio %>
+                </i>
+            </p>
+        <% } %>
+        <a class="btn btn-small" href="<%= ctx.pathname %>/projects">Projects</a>
+        <% if (profile._id.toString() === user._id.toString()) { %>
+            <a class="btn btn-small" href="<%= ctx.pathname %>/projects/new">Create Project</a>
+        <% } %>
+    </div>
+    <div class="col">
+        <% if (profileInfo.picture) { %>
+            <img src="<%= profileInfo.picture %>">
+        <% } %>
+    </div>
+</div>
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

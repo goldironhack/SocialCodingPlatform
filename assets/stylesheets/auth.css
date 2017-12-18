@@ -1,0 +1,399 @@
+@import "react-md-editor/dist/react-md-editor.css";
+@import "codemirror/lib/codemirror.css";
+@import "gridly";
+
+span.user-label {
+    display: inline-block;
+    min-width: 180px;
+    font-weight: bold;
+}
+
+.user-item {
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-view {
+    position: relative;
+}
+
+.loader-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    text-align: center;
+    z-index: 9999;
+}
+
+.loader {
+    font-size: 3em;
+    position: fixed;
+    z-index: 99999;
+    bottom: 80px;
+}
+
+.CodeMirror.cm-s-default {
+    font-family: Monaco, monospace;
+}
+
+/*
+body.hack-type-unal nav,
+body.hack-type-unal footer,
+body.hack-type-unal .btn {
+    background: #111;
+}
+
+body.hack-type-unal h1,
+body.hack-type-unal h2,
+body.hack-type-unal h3,
+body.hack-type-unal h4 {
+    color: #111;
+}
+
+body.hack-type-bogota nav,
+body.hack-type-bogota footer,
+body.hack-type-purdue nav,
+body.hack-type-purdue footer {
+    background: #f39c12;
+}
+
+body.hack-type-bogota .btn,
+body.hack-type-purdue .btn {
+    background: #e67e22;
+}
+
+body.hack-type-bogota h1,
+body.hack-type-bogota h2,
+body.hack-type-bogota h3,
+body.hack-type-bogota h4,
+body.hack-type-purdue h1,
+body.hack-type-purdue h2,
+body.hack-type-purdue h3,
+body.hack-type-purdue h4 {
+    color: #f39c12;
+}*/
+
+body nav,
+body footer {
+    background: #f39c12;
+}
+
+body .btn {
+    background: #e67e22;
+}
+
+body h1,
+body h2,
+body h3,
+body h4 {
+    color: #f39c12;
+}
+
+.post-item {
+    position: relative;
+}
+
+.item-number {
+    position: absolute;
+    left: -30px;
+    top: 30px;
+    color: #ccc;
+}
+
+.upvote-comment,
+.upvote-topic {
+    width: 40px;
+    display: inline-block;
+    float: left;
+    padding: 10px 0;
+}
+
+.comment-content,
+.topic-content {
+    display: inline-block;
+    display: inline-block;
+    width: calc(100% - 100px);
+}
+
+.upvote-comment > a,
+.upvote-topic > a {
+    color: #444;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 100%;
+    border: 1px solid;
+    height: 27px;
+    line-height: 0;
+    width: 27px;
+    text-align: center;
+    transition: 300ms transform ease;
+}
+
+
+.upvote-comment > a.upvoted,
+.upvote-topic > a.upvoted {
+    color: #f39c12;
+    transform: scale(1.2);
+}
+
+.post-info {
+    color: #888;
+}
+
+span.post-info-section {
+    margin: 0 5px;
+}
+
+span.post-info-section:first-of-type {
+    margin-left: 0;
+}
+
+span.post-info-section:last-of-type {
+    margin-right: 0;
+}
+
+a {
+    color: #f39c12;
+}
+
+.post-item:first-of-type {
+    border-radius: 4px 4px 0 0
+}
+
+
+.topic-single .post-item,
+.post-item:last-of-type {
+    border-radius: 0 0 4px 4px;
+    border-bottom: none;
+}
+
+
+.post-item {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+.comments-count {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -5px;
+}
+
+.comments-count i.fa.fa-comment-o {
+    font-size: 36px;
+}
+
+.comments-count > span.comments-number {
+    position: absolute;
+    right: 50%;
+    top: 7px;
+    transform: translateX(50%);
+}
+
+.topic-single a.post-item-title h2 {
+    font-size: 20px;
+}
+
+.topic-body-markdown {
+    font-size: 16px;
+}
+
+.topic-single .CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+  min-height: 60px;
+}
+
+.topic-single .MDEditor_toolbar {transform: scale(0.6);transform-origin: left;}
+
+.topic-single .MDEditor_editor {
+    width: calc(100% - 60px);
+    float: left;
+    margin-right: 8px;
+}
+
+hr {
+    border-color: rgba(204, 204, 204, 0.27);
+    border-width: 1px;
+    border-bottom: none;
+}
+
+.topic-single .MDEditor_toolbar {
+    margin-bottom: -5px;
+}
+
+.topic-comment-item {
+    position: relative;
+    background: #fdfdfd;
+    padding: 13px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+a.comment-profile-link {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+a.comment-profile-link img {
+    width: 50px;
+}
+
+a.comment-profile-link img {
+    border-radius: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+}
+
+span.comment-votes-count {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #e74c3c;
+}
+
+span.upvote-comment {
+    position: relative;
+    width: 29px;
+    margin-right: 15px;
+}
+
+.post-comment-form-wrapper {
+    margin-bottom: 50px;
+}
+
+.post-comment-form-wrapper h3 {
+    margin-top: 30px;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    margin-bottom: 0;
+}
+
+.user-profile-controls form {
+    display: inline-block;
+}
+
+span.post-upvoted {
+    color: #e74c3c;
+}
+span.post-upvoted, span.post-not-upvoted {
+    cursor: pointer;
+}
+
+span.logout-wrapper input {
+    font-weight: bold;
+}
+
+span.logout-wrapper {
+    float: right;
+}
+
+button.circle-save-btn.btn.btn-big {
+    padding: 24px 30px;
+    font-size: 3em;
+    border-radius: 100%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    right: 10px;
+    bottom: 70px;
+}
+
+.admin-area {
+    border-top: 1px solid;
+    background: #fffaf2;
+    border-bottom: 1px solid;
+    border-color: #f1c40f;
+    padding: 0 15px;
+}
+
+button.btn.btn-small.btn-delete {
+    padding: 1px 4px;
+    font-size: 12px;
+    margin-left: 8px;
+    position: relative;
+    bottom: 1px;
+}
+
+span.comment-controls > span {
+    margin-left: 6px;
+}
+
+span.comment-controls {
+    border-left: 1px solid rgba(0, 0, 0, 0.22);
+    margin-left: 7px;
+}
+
+.form-buttons {
+    position: relative;
+    top: 7px;
+    padding-bottom: 12px;
+}
+
+.btn-cancel {
+    opacity: 0.6;
+}
+
+.search-form input, input.form-control {
+    font-size: 17px;
+}
+
+span.admin-filters {
+    margin-left: 10px;
+}
+
+form.form > div {
+    margin: 5px 0;
+}
+
+.elm-centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.partners-list > a {
+    width: 8%;
+    display: table-cell;
+    vertical-align: middle;
+}
+.partners-list > a img {
+    width: 100%;
+}
+
+span.countdown {
+    font-size: 1.4em;
+}
+
+.quizzes-container .btn {
+    max-width: 400px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.user-username > h3 {
+    margin-top: 0;
+}
+
+iframe#view-project-iframe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    top: 180px;
+    border: none;
+    display: block;
+    height: calc(100% - 230px);
+}

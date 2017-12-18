@@ -1,0 +1,16 @@
+<% include(Bloggify.views.header, { title: "Project" }) %>
+<% include(Bloggify.views.container.start) %>
+
+<script>
+    window._pageData = {
+        component: "view-project",
+        user: <%- stringify(user) %>,
+        view_url: <%- stringify(view_url) %>,
+        code_url: <%- stringify(code_url) %>
+    };
+</script>
+
+<div id="app"></div>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

@@ -1,0 +1,19 @@
+<% include(Bloggify.views.header, { title: title = "Ouch! Server error! " }) %>
+<% include(Bloggify.views.container.start) %>
+<center>
+<% include(Bloggify.views.error_box, { err: "What‽ Your browser did something unexpected." }) %>
+</center>
+<% var err = typeof error === "undefined" ? null : error %>
+<% if (err && !Bloggify.production) { %>
+    <pre><%= ctx.method.toUpperCase() %> <%= ctx.href %>
+
+<% if (ctx.method !== "get") { %>
+Post data:
+<%- stringify(ctx.data, null, 4) %>
+<% } %>
+
+Error stack:
+<%= err.stack %></pre>
+<% } %>
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

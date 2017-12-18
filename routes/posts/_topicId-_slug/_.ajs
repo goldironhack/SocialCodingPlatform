@@ -1,0 +1,20 @@
+<% include(Bloggify.views.user_data) %>
+<% include(Bloggify.views.header, { title: topic.title }) %>
+<% include(Bloggify.views.container.start) %>
+
+<script>
+    window._pageData = {
+        component: "topic-page",
+        user: <%- stringify(user) %>,
+        topic: <%- stringify(topic) %>,
+        csrfToken: "<%= ctx.csrfToken %>",
+        isAdmin: <%- stringify(Bloggify.services.session.isAdmin(user)) %>
+    };
+</script>
+
+<div id="app" class="topic-single"></div>
+
+<hr>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

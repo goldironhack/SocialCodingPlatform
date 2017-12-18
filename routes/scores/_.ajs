@@ -1,0 +1,59 @@
+<% include(Bloggify.views.header, { title: "Scores" }) %>
+<% include(Bloggify.views.container.start) %>
+
+<h1 class="text-center">Results (<%= phase %>)</h1>
+
+<% // UNAL 0 %>
+<% var isUnalZero = (user.profile.hack_type === "unal" && user.profile.hack_id === 0) %>
+<% if (isUnalZero) { %>
+    <p>Curious to learn about how you are doing? We have now completed the previous phase the hack. Please check your emails to review your personal feedback. You are now competing with 28 other hackers. They have all received their personal feedback for this phase. </p>
+    
+    </p>Do not share your feedback with others. This is a competition, and the rules require you to keep this information confidential. If you have questions about your feedback, send us an email on <a href="mailto:opendigital@purdue.edu ">opendigital@purdue.edu</a> or attend one of our tech help sessions. </p>
+
+    <p>Happy Coding! Work hard and play hard. It should be fun! </p>
+<% } %>
+
+<% // UNAL 1 %>
+<% if (user.profile.hack_type === "unal" && user.profile.hack_id === 1) { %>
+    <p>Curious to learn what others are doing to outperform the competition? Below, you find the list of all apps build in this hacking competition. We present a list of all hackers in your group. For reasons of anonymity we do not reveal the names of other hackers.</p>
+
+    <p>You can view all other hackers’ projects (both their code and the running application) by clicking on the “Project Link”. After clicking on this link, you can browse three the other’s apps, their file structure, and their actual code. Further, you can also see the running application as if you were a user of the app. This might inspire you. Keep exploring and get inspired.</p>
+
+    <p>Keep in mind! You are allowed to reuse others’ solutions as long as you are not cloning complete solutions. About 50 percent of the code should be your own (we are not considering libraries for this but the actual original code in other’s app). </p>
+
+    <p>Trying to find your own app? Sorry that you have to keep looking for in this list. Since this is a competition, we do not reveal names. Do not talk to other hackers outside of this competition. Stick to our rules and guidelines (<a href="/tasks">www.ironhacks.com/tasks</a>). </p>
+
+    <p>Happy Coding! Work hard and play hard. It should be fun!</p>
+<% } %>
+
+<% // UNAL 2 And Honors (Bogota) %>
+<% var unalTwoAndBHonors = user.profile.hack_type === "bogota" || (user.profile.hack_type === "unal" && user.profile.hack_id === 2) %>
+<% if (unalTwoAndBHonors) { %>
+    <p>You want to know how you are doing? Below you find the results of the previous phase of the hack. For reasons of anonymity we do not reveal the names of other hackers. The table below contains the relative performance of all the participants in your hacking group. We report each hacker’s score in percentiles. A percentile score indicates a certain hacker’s relative standing compared to others. It indicates the percentile of other hackers that have achievement a lower or equal performance of a certain hacker. </p>
+
+    <p>We report a total score and three detailed scores, that related to the three performance dimensions we evaluate your app in: Technology, information visualization, and novelty (see www.ironhacks.com/task for more details). To see the detailed scores, click on “view scores”. This gives you the opportunity to learn more about the performance of others’ in a certain performance dimension. You can also view other’s projects (both their code and the running application) by clicking on the “Project Link”. After clicking on this link, you can browse three the other’s apps, their file structure, and their actual code. Further, you can also see the running application as if you were a user of the app. This might inspire you. </p>
+
+<% } %>
+
+<% if (!isUnalZero) { %>
+<div id="app"></div>
+<script>
+    window._pageData = {
+        component: "scores",
+        user: <%- stringify(ctx.user) %>,
+        hackers: <%- stringify(users) %>,
+        csrfToken: <%- stringify(ctx.csrfToken) %>
+    };
+</script>
+<% } %>
+
+<% if (unalTwoAndBHonors) { %>
+    <p>Keep in mind! You are allowed to reuse others’ solutions as long as you are not cloning complete solutions. About 50 percent of the code should be your own (we are not considering libraries for this but the actual original code in other’s app). </p>
+
+    <p>Trying to find your own app? You should have received an email with the information about the performance of your own application. Use this as a reference when browsing through this table. </p>
+
+    <p>Happy Coding! Work hard and play hard. It should be fun! </p>
+<% } %>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

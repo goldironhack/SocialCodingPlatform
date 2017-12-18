@@ -1,0 +1,32 @@
+<% include(Bloggify.views.header, { title: "Admin" }) %>
+<% include(Bloggify.views.container.start) %>
+
+<h1>Create project</h1>
+
+<hr>
+
+<p>Enter the project name and the description below.</p>
+
+<form method="POST" class="form">
+    <%- ctx.csrfInput %>
+    <% include(Bloggify.views.error_box) %>
+    <div>
+        <label>
+            <span>Name:</span>
+            <input value="<%= ctx.data.name || "" %>" name="name" class="form-control" required="required">
+        </label>
+    </div>
+    <div>
+        <label>
+            <span>Description:</span>
+            <input value="<%= ctx.data.description || "" %>" name="description" class="form-control">
+        </label>
+    </div>
+    <div>
+        <button class="btn btn-small">Create</button>
+    </div>
+</form>
+
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

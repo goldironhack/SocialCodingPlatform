@@ -1,0 +1,40 @@
+<% if (ctx.user) { %>
+    <% include(Bloggify.views.header, { title: "Home" }) %>
+    <% include(Bloggify.views.container.start) %>
+    <div class="partners-list">
+        <a href="https://www.redhat.com/en" target="_blank">
+            <img src="<%= _public("/images/partners/red-hat.jpg") %>" />
+        </a>
+        <a href="https://socrata.com/" target="_blank">
+            <img src="<%= _public("/images/partners/socrata.png") %>" />
+        </a>
+        <a href="https://github.com" target="_blank">
+            <img src="<%= _public("/images/partners/github.jpg") %>" />
+        </a>
+        <a href="http://matchboxstudio.org/" target="_blank">
+            <img src="<%= _public("/images/partners/match-box.png") %>" />
+        </a>
+        <a href="http://www.nsf.gov/" target="_blank">
+            <img src="<%= _public("/images/partners/nsf.jpg") %>" />
+        </a>
+        <a href="http://purduehackers.com/" target="_blank">
+            <img src="<%= _public("/images/partners/purdue-hackers.jpg") %>" />
+        </a>
+        <a href="https://www.purdue.edu/" target="_blank">
+            <img src="<%= _public("/images/partners/purdue-sig-black-gold.png") %>" />
+        </a>
+        <a href="https://polytechnic.purdue.edu/" target="_blank" class="hide">
+            <img src="<%= _public("/images/partners/polytechnic-black-gold.png") %>" />
+        </a>
+        <a href="http://unal.edu.co/" target="_blank">
+            <img src="<%= _public("/images/partners/universidad-nacional-de-colombia.png") %>" />
+        </a>
+    </div>
+
+    <% include(Bloggify.views.homepage.auth) %>
+    <% include(Bloggify.views.container.end) %>
+    <% include(Bloggify.views.footer) %>
+<% } else { %>
+    <% include(Bloggify.views.homepage.public) %>
+<% } %>
+

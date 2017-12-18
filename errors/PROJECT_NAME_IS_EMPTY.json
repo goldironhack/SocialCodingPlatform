@@ -1,0 +1,4 @@
+{
+    "message": "Project name cannot be empty.",
+    "status": 400
+}

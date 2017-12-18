@@ -1,0 +1,121 @@
+.file-tree-column {
+    flex: 0 0 200px;
+}
+
+.editor-column {
+    flex: 0 0 50%;
+}
+
+.readonly-badge {
+    display: none;
+}
+
+.non-editable {
+
+    & nav, & .editor-controls, & footer, & .preview-column, & .fa-trash  {
+        display: none;
+    }
+
+    & .row.editor-container {
+        top: 0;
+        bottom: 0;
+    }
+
+    & .editor-column {
+        flex: 0 0 100%
+    }
+
+    & .readonly-badge {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background: rgba(255, 158, 0, 0.46);
+        z-index: 9;
+        border-radius: 4px;
+        padding: 3px 10px;
+        color: white;
+        border: 1px solid rgba(158, 73, 10, 0.87);
+    }
+}
+
+body {
+    background-color: rgb(33, 37, 43);
+}
+
+body.hack-type-bogota nav, body.hack-type-bogota footer, body.hack-type-purdue nav, body.hack-type-purdue footer {
+    background-color: rgb(23, 25, 29);
+}
+
+.row.editor-container {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    right: 0;
+    bottom: 50px;
+}
+
+#project-ace-editor {
+    width: 100%;
+    height: 100%;
+}
+
+.editor-container .col,
+.editor-container .row {
+    height: 100%;
+    padding: 0;
+}
+
+.editor-preview {
+    background: #272822;
+    height: 100%;
+    border-left: 4px solid #555651;
+    padding: 9px;
+    position: relative;
+}
+
+.editor-preview iframe {
+    width: 100%;
+    border: none;
+    height: 100%;
+}
+
+.col.file-tree-column {
+    padding: 20px;
+
+}
+
+.iframe-spinner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: .1s all ease;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    background: #555651;
+}
+
+.reloading-preview .iframe-spinner {
+    opacity: 1
+}
+
+
+.breadcrumbs {
+    color: white;
+}
+
+div[data-radium] > div:not([data-type='file-text']):first-of-type {
+    display: none !important;
+}
+
+.left-bottom-controls {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 160px;
+}

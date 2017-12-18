@@ -1,0 +1,4 @@
+<h1 class="text-center">
+    <%= ctx.hackLabel %>
+</h1>
+<% include("../posts") %>

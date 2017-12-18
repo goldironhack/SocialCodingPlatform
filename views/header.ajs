@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="csrf-token" content="<%= ctx.csrfToken %>" />
+        <% var user = ctx.user = ctx.getSessionData("user") %>
+        <% if (user) { %>
+            <% var hType = ctx.user.profile.hack_type; %>
+            <% var hTypeName = hType.charAt(0).toUpperCase() + hType.slice(1); %>
+            <% var now = new Date() %>
+            <% var thisYear = now.getFullYear() %>
+            <% 
+                var HACK_LABELS = {
+                    unal: "Purdue – UNAL Gold IronHacks " + thisYear,
+                    purdue: "Purdue Gold IronHacks Fall " + thisYear,
+                    bogota: "Purdue – Gold IronHacks Fall" + thisYear
+                }
+            %>
+            <% ctx.hackLabel = HACK_LABELS[hType] %>
+        <% } %>
+        <title><%= title %> <%=  ctx.hackLabel ? "for " + ctx.hackLabel : "" %> | <%= Bloggify.options.title %></title>
+        <link rel="icon" href="<%= _public("/img/favicon.png") %>">
+        
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+        <%- Bloggify.assets.html() %>
+        <% if (user) { %>
+            <%- Bloggify.bundles.auth.html(); %>
+            <% if (ctx.projectsEditor) { %>
+                <%- Bloggify.bundles.editor.html(); %>
+            <% } %>
+        <% } else { %>
+            <%- Bloggify.bundles.notAuth.html(); %>
+        <% } %>
+    </head>
+    <% var bodyClass = ""; %>
+    <% if (user) { %>
+    <%    bodyClass = "hack-type-" + user.profile.hack_type + " user-hack-id-" + user.profile.hack_id; %>
+    <% } %>
+    <% if (typeof customClasses === "string") { %>
+    <%   bodyClass += " " + customClasses; %>
+    <% } %>
+    <body class="<%= bodyClass %>">
+        <div class="whole-page-wrapper">
+            <% include("navigation", { user: user }) %>

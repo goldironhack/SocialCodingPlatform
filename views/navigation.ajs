@@ -1,0 +1,33 @@
+<nav>
+    <span class="auth-buttons float-left">
+        <a href="/" class="show-xs">Home</a>
+        <% if (user) { %>
+            | <a href="/task">Task</a>
+            | <a href="/scores">Results</a>
+            | <a href="/quizzes">Quizzes</a>
+            <% var tutorialLink = "https://github.com/goldironhack/2017-Fall-Purdue-UNAL-IronHack-Tutorials" %>
+            <% if (tutorialLink) { %>
+                | <a href="<%= tutorialLink %>">Tutorial</a>
+            <% } %>
+            | <a href="/timeline">Timeline</a>
+            <% ctx.tutorialLink = tutorialLink %>
+            <% if (Bloggify.services.session.isAdmin(ctx)) { %>
+                | <a href="/admin">Admin</a>
+            <% } %>
+        <% } %>
+    </span>
+    <span class="site-title hide-sm">
+        <a href="/">
+            <span>
+                IronHacks
+            </span>
+        </a>
+    </span>
+    <span class="auth-buttons float-right">
+        <% if (user) { %>
+            <% include("user_controls") %>
+        <% } else { %>
+            <a href="/login"><strong>Login</strong></a>
+        <% } %>
+    </span>
+</nav>

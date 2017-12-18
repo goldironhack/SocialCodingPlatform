@@ -1,0 +1,21 @@
+<% include(Bloggify.views.header, { title: "Admin" }) %>
+<% include(Bloggify.views.container.start) %>
+
+<h3>Projects</h3>
+
+<% if (ctx.selected_user.username === ctx.user.username) { %>
+	<a href="<%= ctx.pathname %>/new" class="btn btn-small">New project</a>
+<% } %>
+
+<% if (projects.length) { %>
+	<ul>
+	<% projects.forEach(function (currentProject) { %>
+		<li><a href="<%= currentProject.url %>"><%= currentProject.name %></a></li>
+	<% }) %>
+	</ul>
+<% } else { %>
+	<p><a href="<%= ctx.selected_user.url %>">@<%= ctx.selected_user.username %></a> doesn't have any projects</p>
+<% } %>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

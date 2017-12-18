@@ -1,0 +1,4 @@
+{
+    "message": "Topic body cannot be empty.",
+    "status": 400
+}

@@ -1,0 +1,4 @@
+{
+    "message": "The comment body cannot be blank",
+    "status": 400
+}

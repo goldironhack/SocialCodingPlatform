@@ -1,0 +1,8 @@
+<% include(Bloggify.views.user_data) %>
+<% include(Bloggify.views.header) %>
+<% include(Bloggify.views.container.start) %>
+<center>
+<% include(Bloggify.views.error_box) %>
+</center>
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

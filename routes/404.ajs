@@ -1,0 +1,7 @@
+<% include(Bloggify.views.header, { title: "Page not found" }) %>
+<% include(Bloggify.views.container.start) %>
+<center>
+<% include(Bloggify.views.error_box, { err: "Page not found." }) %>
+</center>
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

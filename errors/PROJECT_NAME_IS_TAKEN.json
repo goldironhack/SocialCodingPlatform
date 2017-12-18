@@ -1,0 +1,4 @@
+{
+	"message": "You have already a project called {1}. Project names should be unique.",
+	"status": 400
+}

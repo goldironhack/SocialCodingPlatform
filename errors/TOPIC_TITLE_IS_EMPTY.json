@@ -1,0 +1,4 @@
+{
+    "message": "Topic title cannot be empty.",
+    "status": 400
+}

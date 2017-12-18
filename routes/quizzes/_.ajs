@@ -1,0 +1,22 @@
+<% include(Bloggify.views.header, { title: "Quizzes" }) %>
+<% include(Bloggify.views.container.start) %>
+<div class="text-center">
+    <h1>Quizzes</h1>
+    <p></p>
+    <div class="quizzes-container text-center">
+    <% quizzes.forEach(function (quiz, index) { %>
+        <a class="btn full-width" href="<%= quiz.url %>">
+            <%= quiz.label %>
+        </a>
+        <% if (quizzes.length - 1 !== index) { %>
+            <div>
+            <h1 class="quiz-right-arrow fa fa-long-arrow-down"></h1>
+            <p></p>
+            </div>
+        <% } %>
+    <% }); %>
+    </div>
+</div>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

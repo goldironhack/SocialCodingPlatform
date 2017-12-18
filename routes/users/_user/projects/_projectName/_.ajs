@@ -1,0 +1,21 @@
+<% include(Bloggify.views.header, { title: "Admin" }) %>
+<% include(Bloggify.views.container.start) %>
+
+
+<h2><%= ctx.selected_project.name %></h2>
+<p><%= ctx.selected_project.description %></p>
+
+<hr>
+
+
+<% if (ctx.selected_user.username === ctx.user.username) { %>
+  <a href="<%= ctx.pathname %>/edit" class="btn">Edit</a>
+<% } %>
+<a href="<%= ctx.pathname %>/preview/index.html" class="btn">View</a>
+<% if (ctx.selected_user.username === ctx.user.username) { %>
+  <a href="<%= ctx.pathname %>/delete" class="btn">Delete</a>
+<% } %>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>
+

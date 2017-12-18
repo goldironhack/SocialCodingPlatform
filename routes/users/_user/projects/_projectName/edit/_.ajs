@@ -1,0 +1,22 @@
+<% include(Bloggify.views.user_data) %>
+<% include(Bloggify.views.header, {
+	title: "Edit",
+	customClasses: ctx.query.readonly ? "non-editable" : ""
+}) %>
+<% include(Bloggify.views.container.start_fluid) %>
+
+<script>
+    window._pageData = {
+        component: "project-editor",
+        user: <%- stringify(user) %>,
+        project: <%- stringify(ctx.selected_project) %>,
+        csrfToken: "<%= ctx.csrfToken %>",
+        isAdmin: <%- stringify(Bloggify.services.session.isAdmin(user)) %>,
+        query: <%- stringify(ctx.query) %>
+    };
+</script>
+
+<div id="app" class="project-editor-wrapper"></div>
+
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

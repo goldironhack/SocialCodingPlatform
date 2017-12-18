@@ -1,0 +1,6 @@
+<% var _error = f("err") ? err : f("error") ? error : null %>
+<% if (_error) { %>
+    <div class="error-box">
+        <%= _error.message || _error %>
+    </div>
+<% } %>

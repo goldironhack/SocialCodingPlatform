@@ -1,0 +1,13 @@
+        </div>
+        <footer>
+            <div class="bag fixed">
+                <div class="text-center">
+                    <% include("copyright") %>
+                </div>
+                <div class="float-right bloggify-logo hide-xs">
+                    <a href="https://bloggify.org"><span class="icon-bloggify-mark"></span></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

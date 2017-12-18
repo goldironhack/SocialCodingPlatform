@@ -1,0 +1,4 @@
+<% var now = new Date(); %>
+<% var thisYear = now.getFullYear(); %>
+Copyright © <%= thisYear %> Purdue IronHacks. All rights reserved. | Powered by
+<a href="https://bloggify.org/" target="_blank">Bloggify</a>

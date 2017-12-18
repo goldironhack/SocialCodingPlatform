@@ -1,0 +1,28 @@
+<% include(Bloggify.views.header, { title: "Search" }) %>
+<% include(Bloggify.views.container.start) %>
+<h1>Search</h1>
+<div class="search-form-wrapper">
+    <% include(Bloggify.views.search_form) %>
+</div>
+<% if (f("results")) { %>
+    <p class="search-results-text">Search results for <em>‘<%= ctx.query.search %>’</em></p>
+    <div class="search-results">
+        <% if (results.length) { %>
+            <% results.forEach(function (cResult) { %>
+                <div class="seach-result-item">
+                    <h2>
+                        <a href="<%= cResult.url %>">
+                            <%= cResult.title %>
+                        </a>
+                    </h2>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <div class="no-search-results">
+                There are no results. Maybe try a different query.
+            </div>
+        <% } %>
+    </div>
+<% } %>
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

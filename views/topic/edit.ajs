@@ -1,0 +1,21 @@
+<% include(Bloggify.views.user_data) %>
+<% include(Bloggify.views.header, { title: title }) %>
+<% include(Bloggify.views.container.start) %>
+<% var user = ctx.user %>
+<div class="box">
+    <% include("../error_box") %>
+    <script>
+        window._pageData = {
+            component: "edit-topic",
+            user: <%- stringify(user) %>,
+            topic: <%- stringify(f("topic") ? topic : ctx.data) %>,
+            csrfToken: "<%= ctx.csrfToken %>",
+            isAdmin: <%- stringify(Bloggify.services.session.isAdmin(user)) %>,
+            hackTypes: <%- stringify(ctx.hack_types || {}) %>
+        };
+    </script>
+    <h1><%= ctx.pathname === "/new" ? "New topic" : "Edit topic" %></h1>
+    <div id="app"></div>
+</div>
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>

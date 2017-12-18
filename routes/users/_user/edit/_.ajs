@@ -1,0 +1,30 @@
+<% include(Bloggify.views.header, { title: "Edit Profile" }) %>
+<% include(Bloggify.views.container.start) %>
+<h1><%= profile.username %></h1>
+<% profileInfo = profile.profile || {} %>
+<form method="post">
+    <%- ctx.csrfInput %>
+    <div class="form-section">
+        <label>
+            <strong>Twitter Username</strong>:<br>
+            <input type="text" name="twitter" value="<%= profileInfo.twitter || "" %>">
+        </label>
+    </div>
+    <div class="form-section">
+        <label>
+            <strong>Bio:</strong><br>
+            <textarea name="bio"><%= profileInfo.bio || ""%></textarea>
+        </label>
+    </div>
+    <div class="form-section hide">
+        <label>
+            <strong>Website</strong>:<br>
+            <input type="url" name="website" value="<%= profileInfo.website || "" %>">
+        </label>
+    </div>
+    <div>
+    <button class="btn">Update profile</button>
+    </div>
+</form>
+<% include(Bloggify.views.container.end) %>
+<% include(Bloggify.views.footer) %>
