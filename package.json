@@ -1,0 +1,94 @@
+{
+  "name": "purdue-ironhacks-platform",
+  "version": "1.0.0",
+  "description": "Hack for innovation and join the open data movement.",
+  "main": "bloggify.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production bloggify start --no-bundle",
+    "start:prod": "NODE_ENV=production bloggify start",
+    "start:dev": "bloggify start",
+    "start:no-survey": "bloggify start --bypass-survey",
+    "bundle": "PORT=8081 NODE_ENV=production bloggify start --exit-after-bundle",
+    "purify:homepage": "purifycss .bloggify/public/production-bundles/publicHomepage/stylesheets-publicHomepage.css .bloggify/public/production-bundles/publicHomepage/scripts-publicHomepage.js app/views/homepage/public.ajs app/views/register.ajs --min --info --out .bloggify/public/production-bundles/publicHomepage/stylesheets-publicHomepage.css",
+    "start:debug": "node debug `which bloggify` start",
+    "deploy": "./scripts/heroku-deploy.sh",
+    "enable-heroku-cache": "heroku config:unset NODE_MODULES_CACHE",
+    "disable-heroku-cache": "heroku config:set NODE_MODULES_CACHE=false"
+  },
+  "author": "Purdue University Research Center for Open Digital Innovation (Purdue Ironhacks) <opendigital@purdue.edu> (https://www.purdue.edu)",
+  "contributors": [
+    "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.100.0",
+    "bag.css": "^1.0.5",
+    "bindy": "^1.0.8",
+    "bloggify": "0.0.0-alpha10",
+    "bloggify-github-login": "^2.0.2",
+    "bloggify-icons": "^1.0.0",
+    "bloggify-sendgrid": "^2.1.0",
+    "codemirror": "^5.24.0",
+    "connect-mongo": "^1.3.2",
+    "elly": "^1.1.3",
+    "execa": "^0.8.0",
+    "fast-csv": "^2.3.1",
+    "find-value": "^1.0.5",
+    "gh.js": "^3.0.11",
+    "gridly": "^1.4.8",
+    "html-entities": "^1.2.1",
+    "is-valid-path": "^0.1.1",
+    "jquery": "^2.2.4",
+    "map-o": "^2.0.5",
+    "modernizr": "^3.3.1",
+    "moment": "^2.17.1",
+    "moment-timezone": "^0.5.11",
+    "node-schedule": "^1.2.0",
+    "obj-flatten": "^2.0.0",
+    "paths2tree": "0.0.1",
+    "react": "^15.4.2",
+    "react-ace": "^5.1.2",
+    "react-dom": "^15.4.2",
+    "react-folder-tree": "^3.0.0",
+    "react-markdown": "^2.4.4",
+    "react-md-editor": "^0.2.2",
+    "react-treebeard": "^2.0.3",
+    "regex-escape": "^3.4.4",
+    "same-time": "^2.3.3",
+    "slugo": "^0.2.1",
+    "streamp": "^2.2.8",
+    "sweetalert2-react": "^0.5.0",
+    "treeify-paths": "^1.0.1",
+    "uc-first": "^1.0.4",
+    "unique-random-range": "^1.0.1",
+    "util-promisifyall": "^1.0.1",
+    "whatwg-fetch": "^2.0.2"
+  },
+  "devDependencies": {
+    "purify-css": "^1.1.9"
+  },
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "resources/",
+    "menu/",
+    "scripts/",
+    "cli.js",
+    "index.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/hackpurdue/courseswebpage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackpurdue/courseswebpage.git"
+  },
+  "homepage": "https://github.com/hackpurdue/courseswebpage#readme",
+  "engines": {
+    "node": "8.0.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "config": {
+      "githubClient": "",
+      "githubSecret": "",
+      "loginURI": "/login",
+      "callbackURI": "/login-callback",
+      "scope": "user:email"
+    }
+}
